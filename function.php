@@ -95,5 +95,3 @@ function deleteAdmin($data) {
 
     $delete = mysqli_query($connect, "");
 }
-
-?>

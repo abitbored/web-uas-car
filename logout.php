@@ -5,4 +5,3 @@
         // Redirecting To Home Page
         header("Location: login-admin.php");
     }
-?>
