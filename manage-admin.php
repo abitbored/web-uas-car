@@ -28,12 +28,12 @@ if (isset($_POST['logout'])) {
     <nav class="navbar-container">
         <div class="nav-list">
             <ul>
-                <li><a class="" href="dashboard-admin.php">Home</a></li>
-                <li><a class="" href="add-item.php">Add Item</a></li>
-                <li><a class="" href="manage-item.php">Manage Item</a></li>
-                <li><a class="" href="manage-admin.php">Manage Admin</a></li>
+                <li><a class="nav-button" href="dashboard-admin.php">Home</a></li>
+                <li><a class="nav-button" href="add-item.php">Add Item</a></li>
+                <li><a class="nav-button" href="manage-item.php">Manage Item</a></li>
+                <li><a class="nav-button" href="manage-admin.php">Manage Admin</a></li>
                 <li>
-                    <form action="" method="POST"><input class="" type="submit" name="logout" value="Logout"></form>
+                    <form action="" method="POST"><input class="nav-button" type="submit" name="logout" value="Logout"></form>
                 </li>
             </ul>F
         </div>

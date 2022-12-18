@@ -1,5 +1,10 @@
 <?php
 include('auth-session.php');
+include('function.php');
+
+if (isset($_POST['logout'])) {
+    logout();
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,17 +20,23 @@ include('auth-session.php');
 
 <body>
     <header class="logo">
-        <a href="dashboard-admin.php"><h1>Abi's Autoshop</h1></a>
+        <a href="dashboard-admin.php">
+            <h1>Abi's Autoshop</h1>
+        </a>
     </header>
 
-    <nav class="navbar">
-        <ul>
-            <li><a class="active" href="dashboard-admin.php">Home</a></li>
-            <li><a class="active" href="add-item.php">Add Item</a></li>
-            <li><a class="active" href="manage-item.php">Manage Item</a></li>
-            <li><a class="active" href="manage-admin.php">Manage Admin</a></li>
-            <li><a href="logout.php">Logout</a></li>
-        </ul>
+    <nav class="navbar-container">
+        <div class="nav-list">
+            <ul>
+                <li><a class="nav-button" href="dashboard-admin.php">Home</a></li>
+                <li><a class="nav-button" href="add-item.php">Add Item</a></li>
+                <li><a class="nav-button" href="manage-item.php">Manage Item</a></li>
+                <li><a class="nav-button" href="manage-admin.php">Manage Admin</a></li>
+                <li>
+                    <form action="" method="POST"><input class="nav-button" type="submit" name="logout" value="Logout"></form>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <p>welcome <?php echo $_SESSION['name']; ?></p>

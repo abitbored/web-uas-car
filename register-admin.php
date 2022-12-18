@@ -24,7 +24,9 @@ if (isset($_POST['submit'])) {
 
 <body>
     <header class="logo">
-        <a href="home.php"><h1>Abi's Autoshop</h1></a>
+        <a href="home.php">
+            <h1>Abi's Autoshop</h1>
+        </a>
     </header>
 
     <nav class="navbar">

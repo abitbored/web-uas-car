@@ -17,11 +17,13 @@
     </header>
 
     <nav class="navbar">
-        <ul>
-            <li><a class="active" href="home.php">Home</a></li>
-            <li><a class="active" href="catalog.php">Catalog</a></li>
-            <li><a href="about.php">About</a></li>
-        </ul>
+        <div class="nav-list">
+            <ul>
+                <li><a class="nav-button" href="home.php">Home</a></li>
+                <li><a class="nav-button" href="catalog.php">Catalog</a></li>
+                <li><a class="nav-button" href="about.php">About</a></li>
+            </ul>
+        </div>
     </nav>
 
     <div class="about-container">

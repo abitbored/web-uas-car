@@ -11,15 +11,19 @@
 
 <body>
     <header class="logo">
-        <a href="home.php"><h1>Abi's Autoshop</h1></a>
+        <a href="home.php">
+            <h1>Abi's Autoshop</h1>
+        </a>
     </header>
 
     <nav class="navbar">
-        <ul>
-            <li><a class="active" href="home.php">Home</a></li>
-            <li><a class="active" href="catalog.php">Catalog</a></li>
-            <li><a href="about.php">About</a></li>
-        </ul>
+        <div class="nav-list">
+            <ul>
+                <li><a class="nav-button" href="home.php">Home</a></li>
+                <li><a class="nav-button" href="catalog.php">Catalog</a></li>
+                <li><a class="nav-button" href="about.php">About</a></li>
+            </ul>
+        </div>
     </nav>
 </body>
 
