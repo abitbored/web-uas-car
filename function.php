@@ -13,6 +13,34 @@ function fetch($query) {
     return $resultRows;
 }
 
+function fetchMany($tableName, $columnArr, $order) {
+    global $connect;
+
+    if (empty($connect)) {
+        return "Database connection error.";
+    }
+
+    if (empty($columnArr) || !is_array($columnArr)) {
+        return "Column must be defined and in an indexed array!";
+    }
+
+    if (empty($tableName)) {
+        return "Table parameter is empty!";
+    }
+
+    $columns = implode(", ", $columnArr);
+    $query = "select $columns from $tableName order by $order asc";
+    $result = mysqli_query($connect, $query);
+    $rowCount = mysqli_num_rows($result);
+
+    if (isset($result) && $rowCount > 0) {
+        $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        return $row;
+    }
+
+    return "Data not found.";
+}
+
 function register($data) {
     global $connect;
 
@@ -86,6 +114,15 @@ function logout() {
     if (session_destroy()) {
         header('location: login-admin.php');
     }
+}
+
+function fetchAdminData() {
+    global $connect;
+
+    $tableName = 'admin';
+    $columnArr = ['name', 'username', 'password'];
+
+    return fetchMany($tableName, $columnArr, "name");
 }
 
 function deleteAdmin($data) {

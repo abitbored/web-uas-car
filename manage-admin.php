@@ -5,6 +5,8 @@ include('function.php');
 if (isset($_POST['logout'])) {
     logout();
 }
+
+$adminData = fetchAdminData();
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +37,7 @@ if (isset($_POST['logout'])) {
                 <li>
                     <form action="" method="POST"><input class="nav-button" type="submit" name="logout" value="Logout"></form>
                 </li>
-            </ul>F
+            </ul>
         </div>
     </nav>
 
@@ -48,7 +50,24 @@ if (isset($_POST['logout'])) {
                 <th>Action</th>
             </thead>
             <tbody class="table-body">
-
+                <?php
+                if (is_array($adminData)) {
+                    foreach ($adminData as $data) {
+                ?>
+                        <tr>
+                            <td><?php echo $data['name']; ?></td>
+                            <td><?php echo $data['username']; ?></td>
+                            <td><?php echo $data['password']; ?></td>
+                            <td>
+                                <a href="" class="btn-delete">Delete</a>
+                            </td>
+                        </tr>
+                    <?php }
+                } else { ?>
+                    <tr>
+                        <td colspan="4"><?php echo $adminData; ?></td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>
