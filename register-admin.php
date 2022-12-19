@@ -37,9 +37,9 @@ if (isset($_POST['submit'])) {
         </ul>
     </nav>
 
-    <div class="content">
+    <div class="register-content">
         <h2>Admin Register</h2>
-        <div class="form-container">
+        <div class="register-form-container">
             <form method="POST" action="" enctype="multipart/form-data" autocomplete="off">
                 <label class="form-label">Username</label>
                 <input type="text" class="form-input" name="username" required>

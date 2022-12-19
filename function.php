@@ -117,8 +117,6 @@ function logout() {
 }
 
 function fetchAdminData() {
-    global $connect;
-
     $tableName = 'admin';
     $columnArr = ['name', 'username', 'password'];
 
@@ -130,5 +128,70 @@ function deleteAdmin($data) {
 
     $username = mysqli_real_escape_string($connect, $data['username']);
 
-    $delete = mysqli_query($connect, "");
+    $checkUsername = mysqli_query($connect, "select * from admin where username = '$username'");
+
+    if (!isset($checkUsername)) {
+        echo "<script>alert('Failed deleting admin data. Admin not found!')</script>";
+        return;
+    }
+
+    mysqli_query($connect, "delete from admin where username = '$username'");
+    header('location: manage-admin.php');
+}
+
+function addItem($data, $image) {
+    global $connect;
+
+    $brand = mysqli_real_escape_string($connect, $data['brand']);
+    $year = mysqli_real_escape_string($connect, $data['year']);
+    $kilometer = mysqli_real_escape_string($connect, $data['kilometer']);
+    $description = mysqli_real_escape_string($connect, $data['description']);
+    $dateUploaded = mysqli_real_escape_string($connect, $data['dateUploaded']);
+
+    if ($kilometer == null || $kilometer == '0') {
+        $kilometer = "NEW";
+    }
+
+    $fileName = $image['imgName']['name'];
+    $explodeName = explode(".", $fileName);
+
+    $imgName = time().uniqid(rand()).'.'.end($explodeName);
+    $imgPath = "img/";
+    move_uploaded_file($image['imgName']['tmp_name'], $imgPath . $imgName);
+
+    $query = "insert into product (brand, year, kilometer, description, imgName, dateUploaded) values ('$brand', '$year', '$kilometer', '$description', '$imgName', '$dateUploaded')";
+    $push = mysqli_query($connect, $query);
+
+    if (!$push) {
+        echo "<script>alert('Failed while adding the data to database.')</script>";
+        return;
+    }
+
+    header('location: add-item.php');
+}
+
+function fetchProductData() {
+    $tableName = 'product';
+    $columnArr = ['id', 'brand', 'year', 'kilometer', 'description', 'imgName', 'dateUploaded'];
+
+    return fetchMany($tableName, $columnArr, "id");
+}
+
+function deleteProduct($data) {
+    global $connect;
+
+    $id = mysqli_real_escape_string($connect, $data['id']);
+    $imgName = mysqli_real_escape_string($connect, $data['imgName']);
+
+    $checkId = mysqli_query($connect, "select * from admin where username = '$id'");
+
+    if (!isset($checkId)) {
+        echo "<script>alert('Failed deleting product data. Product not found!')</script>";
+        return;
+    }
+
+    mysqli_query($connect, "delete from product where id = '$id'");
+    unlink("img/$imgName");
+
+    header('location: manage-item.php');
 }

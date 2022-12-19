@@ -7,10 +7,10 @@ if (isset($_POST['logout'])) {
 }
 
 if (isset($_POST['delete'])) {
-    deleteAdmin($_POST);
+    deleteProduct($_POST);
 }
 
-$adminData = fetchAdminData();
+$productData = fetchProductData();
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ $adminData = fetchAdminData();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
-    <title>Manage Admin</title>
+    <title>Manage Item</title>
 </head>
 
 <body>
@@ -48,23 +48,36 @@ $adminData = fetchAdminData();
     <div class="table-container">
         <table class="table">
             <thead class="table-head">
-                <th>Name</th>
-                <th>Username</th>
-                <th>Password</th>
+                <th>Brand</th>
+                <th>Year</th>
+                <th>Kilometer</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Date Uploaded</th>
                 <th>Action</th>
             </thead>
             <tbody class="table-body">
                 <?php
-                if (is_array($adminData)) {
-                    foreach ($adminData as $data) {
+                if (is_array($productData)) {
+                    foreach ($productData as $data) {
                 ?>
                         <tr>
-                            <td><?php echo $data['name']; ?></td>
-                            <td><?php echo $data['username']; ?></td>
-                            <td><?php echo $data['password']; ?></td>
+                            <td><?php echo $data['brand']; ?></td>
+                            <td><?php echo $data['year']; ?></td>
+                            <td><?php echo $data['kilometer']; ?></td>
+                            <td><?php echo $data['description']; ?></td>
                             <td>
+                                <div class="img-data">
+                                    <img src="img/<?php echo $data['imgName']; ?>" alt="<?php echo $data['brand']; ?>" style="width:100px;height:100px;">
+                                </div>
+                                <?php echo $data['imgName']; ?>
+                            </td>
+                            <td><?php echo $data['dateUploaded']; ?></td>
+                            <td>
+                                <a href="edit-product.php?id=<?php echo $data['id']; ?>" class="edit-btn">Edit</a>
                                 <form action="" method="POST">
-                                    <input type="hidden" name="username" value="<?php echo $data['username']; ?>">
+                                    <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+                                    <input type="hidden" name="imgName" value="<?php echo $data['imgName']; ?>">
                                     <input class="del-btn" type="submit" name="delete" value="Delete">
                                 </form>
                             </td>
@@ -72,7 +85,7 @@ $adminData = fetchAdminData();
                     <?php }
                 } else { ?>
                     <tr>
-                        <td colspan="4"><?php echo $adminData; ?></td>
+                        <td colspan="7"><?php echo $productData; ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
