@@ -6,9 +6,12 @@ if (isset($_POST['logout'])) {
     logout();
 }
 
-if (isset($_POST['add'])) {
-    addItem($_POST, $_FILES);
+if (isset($_POST['update'])) {
+    editItem($_POST, $_FILES);
 }
+
+$id = $_GET['id'];
+$product = fetch("select * from product where id = '$id'");
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +22,7 @@ if (isset($_POST['add'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
-    <title>Add Item</title>
+    <title>Edit Item</title>
 </head>
 
 <body>
@@ -48,16 +51,18 @@ if (isset($_POST['add'])) {
         <div class="add-item-form-container">
             <form method="POST" action="" enctype="multipart/form-data" autocomplete="off">
                 <label class="form-label">Brand</label>
-                <input type="text" class="form-input" name="brand" required>
+                <input type="text" class="form-input" name="brand" value="<?php echo $product['brand']; ?>" required>
                 <label class="form-label">Year</label>
-                <input type="text" class="form-input" name="year" required>
+                <input type="text" class="form-input" name="year" value="<?php echo $product['year']; ?>" required>
                 <label class="form-label">Kilometer</label>
-                <input type="text" class="form-input" name="kilometer">
+                <input type="text" class="form-input" name="kilometer" value="<?php echo $product['kilometer']; ?>">
                 <label class="form-label">Picture</label>
-                <input type="file" class="form-input" name="imgName" accept="image/*" required>
+                <input type="file" class="form-input" name="imgName" accept="image/*">
                 <label class="form-label">Description</label>
-                <textarea name="description" id="desc" maxlength="4096" required></textarea>
-                <input type="submit" class="form-submit" name="add" value="Add Product">
+                <textarea name="description" id="desc" maxlength="4096" required><?php echo $product['description']; ?></textarea>
+                <input type="hidden" name="imgName" value="<?php echo $product['imgName']; ?>">
+                <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+                <input type="submit" class="form-submit" name="update" value="Update Product">
             </form>
         </div>
     </div>

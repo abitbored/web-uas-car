@@ -1,3 +1,9 @@
+<?php
+include('function.php');
+
+$productData = fetchProductData();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,52 +36,21 @@
     </nav>
 
     <div class="product-container">
-        <!-- <table border="1">
-        <tr>
-            <td rowspan="2">makan bang</td>
-            <td>makan babi</td>
-        </tr>
-        <tr>
-            <td>tidur</td>
-        </tr>
-        </table> -->
-
-        <div class="product-container">
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="img/porsche-911.webp" alt="porsche-911">
-                </div>
-                <div class="product-info">
-                    <div class="product-brand">Porsche 911</div>
-                    <div class="product-year">2022</div>
-                    <div class="product-kilometer">NEW</div>
-                    <div class="product-short-desc">Porsche 911 2022 model with the latest V12 eng...</div>
-                </div>
+        <?php
+        foreach ($productData as $data) {
+        ?>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="img/<?php echo $data['imgName']; ?>" alt="<?php echo $data['brand']; ?>">
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="img/the-new-range-rover.webp" alt="the-new-range-rover">
-                </div>
-                <div class="product-info">
-                    <div class="product-brand">The New Range Rover</div>
-                    <div class="product-year">2022</div>
-                    <div class="product-kilometer">NEW</div>
-                    <div class="product-short-desc">The New Range Rover 2022 Model with expandable ro...</div>
-                </div>
+            <div class="product-info">
+                <div class="product-brand"><?php echo $data['brand']; ?></div>
+                <div class="product-year"><?php echo $data['year']; ?></div>
+                <div class="product-kilometer"><?php echo $data['kilometer']; ?></div>
+                <div class="product-short-desc"><?php echo shortenDesc($data['description']); ?></div>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="img/avanza.webp" alt="avanza">
-                </div>
-                <div class="product-info">
-                    <div class="product-brand">Toyota Avanza</div>
-                    <div class="product-year">2016</div>
-                    <div class="product-kilometer">20.000</div>
-                    <div class="product-short-desc">Avanza G 2016 Manual warna hitam KM ±20.000</div>
-                </div>
-            </div>
-
         </div>
+        <?php } ?>
     </div>
 </body>
 

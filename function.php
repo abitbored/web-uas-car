@@ -1,19 +1,17 @@
 <?php
 require('connect.php');
 
-function fetch($query) {
+function fetch($query)
+{
     global $connect;
 
     $result = mysqli_query($connect, $query);
-    
-    while ($resultRow = mysqli_fetch_assoc($result)) {
-        $resultRows[] = $resultRow;
-    }
 
-    return $resultRows;
+    return $resultRows = mysqli_fetch_assoc($result);
 }
 
-function fetchMany($tableName, $columnArr, $order) {
+function fetchMany($tableName, $columnArr, $order, $sort)
+{
     global $connect;
 
     if (empty($connect)) {
@@ -28,8 +26,10 @@ function fetchMany($tableName, $columnArr, $order) {
         return "Table parameter is empty!";
     }
 
+    $ascdsc = ($sort == 1) ? "asc" : "desc";
+
     $columns = implode(", ", $columnArr);
-    $query = "select $columns from $tableName order by $order asc";
+    $query = "select $columns from $tableName order by $order $ascdsc";
     $result = mysqli_query($connect, $query);
     $rowCount = mysqli_num_rows($result);
 
@@ -41,7 +41,8 @@ function fetchMany($tableName, $columnArr, $order) {
     return "Data not found.";
 }
 
-function register($data) {
+function register($data)
+{
     global $connect;
 
     $username = mysqli_real_escape_string($connect, $data['username']);
@@ -80,7 +81,8 @@ function register($data) {
     header("location: login-admin.php");
 }
 
-function login($data) {
+function login($data)
+{
     global $connect;
     session_start();
 
@@ -108,7 +110,8 @@ function login($data) {
     header('location: dashboard-admin.php');
 }
 
-function logout() {
+function logout()
+{
     session_start();
 
     if (session_destroy()) {
@@ -116,14 +119,16 @@ function logout() {
     }
 }
 
-function fetchAdminData() {
+function fetchAdminData()
+{
     $tableName = 'admin';
     $columnArr = ['name', 'username', 'password'];
 
-    return fetchMany($tableName, $columnArr, "name");
+    return fetchMany($tableName, $columnArr, "name", 1);
 }
 
-function deleteAdmin($data) {
+function deleteAdmin($data)
+{
     global $connect;
 
     $username = mysqli_real_escape_string($connect, $data['username']);
@@ -139,7 +144,8 @@ function deleteAdmin($data) {
     header('location: manage-admin.php');
 }
 
-function addItem($data, $image) {
+function addItem($data, $image)
+{
     global $connect;
 
     $brand = mysqli_real_escape_string($connect, $data['brand']);
@@ -155,7 +161,7 @@ function addItem($data, $image) {
     $fileName = $image['imgName']['name'];
     $explodeName = explode(".", $fileName);
 
-    $imgName = time().uniqid(rand()).'.'.end($explodeName);
+    $imgName = time() . uniqid(rand()) . '.' . end($explodeName);
     $imgPath = "img/";
     move_uploaded_file($image['imgName']['tmp_name'], $imgPath . $imgName);
 
@@ -170,14 +176,16 @@ function addItem($data, $image) {
     header('location: add-item.php');
 }
 
-function fetchProductData() {
+function fetchProductData()
+{
     $tableName = 'product';
     $columnArr = ['id', 'brand', 'year', 'kilometer', 'description', 'imgName', 'dateUploaded'];
 
-    return fetchMany($tableName, $columnArr, "id");
+    return fetchMany($tableName, $columnArr, "id", 0);
 }
 
-function deleteProduct($data) {
+function deleteProduct($data)
+{
     global $connect;
 
     $id = mysqli_real_escape_string($connect, $data['id']);
@@ -192,6 +200,51 @@ function deleteProduct($data) {
 
     mysqli_query($connect, "delete from product where id = '$id'");
     unlink("img/$imgName");
+
+    header('location: manage-item.php');
+}
+
+function shortenDesc($data)
+{
+    $description = $data;
+
+    if (strlen($description) > 50) {
+        $shortDesc = substr($description, 0, 50) . "...";
+        return $shortDesc;
+    }
+
+    return $description;
+}
+
+function editItem($data, $image = null)
+{
+    global $connect;
+
+    $id = mysqli_real_escape_string($connect, $data['id']);
+    $brand = mysqli_real_escape_string($connect, $data['brand']);
+    $year = mysqli_real_escape_string($connect, $data['year']);
+    $kilometer = mysqli_real_escape_string($connect, $data['kilometer']);
+    $imgName = mysqli_real_escape_string($connect, $data['imgName']);
+    $description = mysqli_real_escape_string($connect, $data['description']);
+
+    if (isset($image)) {
+        unlink("img/$imgName");
+
+        $fileName = $image['imgName']['name'];
+        $explodeName = explode(".", $fileName);
+
+        $imgName = time() . uniqid(rand()) . '.' . end($explodeName);
+        $imgPath = "img/";
+        move_uploaded_file($image['imgName']['tmp_name'], $imgPath . $imgName);
+    }
+
+    $query = "update product set brand = '$brand',  year = '$year', kilometer = '$kilometer', imgName = '$imgName', description = '$description' where id = '$id'";
+    $result = mysqli_query($connect, $query);
+
+    if (!$result) {
+        echo "<script>alert('Failed while updating the data to database.')</script>";
+        return;
+    }
 
     header('location: manage-item.php');
 }
