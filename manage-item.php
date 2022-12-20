@@ -65,7 +65,9 @@ $productData = fetchProductData();
                             <td><?php echo $data['brand']; ?></td>
                             <td><?php echo $data['year']; ?></td>
                             <td><?php echo $data['kilometer']; ?></td>
-                            <td><?php echo $data['description']; ?></td>
+                            <td>
+                                <pre><?php echo $data['description']; ?></pre>
+                            </td>
                             <td>
                                 <div class="img-data">
                                     <img src="img/<?php echo $data['imgName']; ?>" alt="<?php echo $data['brand']; ?>" style="width:100px;height:100px;">

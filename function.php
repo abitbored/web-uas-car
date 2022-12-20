@@ -227,7 +227,7 @@ function editItem($data, $image = null)
     $imgName = mysqli_real_escape_string($connect, $data['imgName']);
     $description = mysqli_real_escape_string($connect, $data['description']);
 
-    if (isset($image)) {
+    if (isset($image['imgName']['name'])) {
         unlink("img/$imgName");
 
         $fileName = $image['imgName']['name'];

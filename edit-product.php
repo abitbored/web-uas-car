@@ -6,7 +6,10 @@ if (isset($_POST['logout'])) {
     logout();
 }
 
-if (isset($_POST['update'])) {
+if (isset($_POST['update']) && empty($_FILES['imgName']['name'])) {
+    editItem($_POST);
+}
+if (isset($_POST['update']) && !empty($_FILES['imgName']['name'])) {
     editItem($_POST, $_FILES);
 }
 
