@@ -337,6 +337,7 @@ a:active { text-decoration: none; }
 	border: #243763;
 	border-style: solid;
 	font-family: monospace;
+	resize: vertical;
 }
 
 .footer {
