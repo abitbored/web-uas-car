@@ -23,32 +23,30 @@ if (isset($_POST['submit'])) {
 </header> -->
 
 <body>
-    <header class="logo">
-        <a href="home.php">
-            <h1>Abi's Autoshop</h1>
-        </a>
-    </header>
+    <header>
+        <div class="logo-container">
+            <a href="home.php" class="logo">
+                <span>AbibaCars</span>
+            </a>
+        </div>
 
-    <nav class="navbar">
-        <ul>
-            <li><a class="active" href="home.php">Home</a></li>
-            <li><a class="active" href="catalog.php">Catalog</a></li>
-            <li><a href="about.php">About</a></li>
-        </ul>
-    </nav>
+        <nav class="navbar">
+            <ul>
+                <li><a class="nav-button" href="home.php">Home</a></li>
+                <li><a class="nav-button" href="catalog.php">Catalog</a></li>
+                <li><a class="nav-button" href="about.php">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <div class="register-content">
         <h2>Admin Register</h2>
         <div class="register-form-container">
             <form method="POST" action="" enctype="multipart/form-data" autocomplete="off">
-                <label class="form-label">Username</label>
-                <input type="text" class="form-input" name="username" required>
-                <label class="form-label">Admin Name</label>
-                <input type="text" class="form-input" name="name" required>
-                <label class="form-label">Password</label>
-                <input type="password" class="form-input" name="password" required>
-                <label class="form-label">Re-enter Password</label>
-                <input type="password" class="form-input" name="password-confirm" required>
+                <input type="text" class="form-input" name="username" required placeholder="Username">
+                <input type="text" class="form-input" name="name" required placeholder="Admin Name">
+                <input type="password" class="form-input" name="password" required placeholder="Password">
+                <input type="password" class="form-input" name="password-confirm" required placeholder="Re-enter Password">
                 <input type="submit" class="form-submit" name="submit" value="Register">
             </form>
         </div>

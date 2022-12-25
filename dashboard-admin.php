@@ -19,25 +19,23 @@ if (isset($_POST['logout'])) {
 </head>
 
 <body>
-    <header class="logo">
-        <a href="dashboard-admin.php">
-            <h1>Abi's Autoshop</h1>
-        </a>
-    </header>
+    <header>
+        <div class="logo-container">
+            <a href="home.php" class="logo">
+                <span>AbibaCars</span>
+            </a>
+        </div>
 
-    <nav class="navbar-container">
-        <div class="nav-list">
+        <nav class="navbar">
             <ul>
-                <li><a class="nav-button" href="dashboard-admin.php">Home</a></li>
+                <li><a id="current" class="nav-button" href="dashboard-admin.php">Home</a></li>
                 <li><a class="nav-button" href="add-item.php">Add Item</a></li>
                 <li><a class="nav-button" href="manage-item.php">Manage Item</a></li>
                 <li><a class="nav-button" href="manage-admin.php">Manage Admin</a></li>
-                <li>
-                    <form action="" method="POST"><input class="nav-button" type="submit" name="logout" value="Logout"></form>
-                </li>
+                <li><a class="nav-button" href="logout.php">Logout</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <p>welcome <?php echo $_SESSION['name']; ?></p>
 </body>

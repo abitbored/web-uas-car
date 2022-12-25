@@ -19,31 +19,33 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <header class="logo">
-        <a href="home.php">
-            <h1>Abi's Autoshop</h1>
-        </a>
-    </header>
+    <header>
+        <div class="logo-container">
+            <a href="home.php" class="logo">
+                <span>AbibaCars</span>
+            </a>
+        </div>
 
-    <nav class="navbar">
-        <ul>
-            <li><a class="active" href="home.php">Home</a></li>
-            <li><a class="active" href="catalog.php">Catalog</a></li>
-            <li><a href="about.php">About</a></li>
-        </ul>
-    </nav>
+        <nav class="navbar">
+            <ul>
+                <li><a class="nav-button" href="home.php">Home</a></li>
+                <li><a class="nav-button" href="catalog.php">Catalog</a></li>
+                <li><a class="nav-button" href="about.php">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <div class="content">
         <h2>Admin Login</h2>
         <div class="form-container">
             <form method="POST" action="" enctype="multipart/form-data" autocomplete="off">
-                <label class="form-label">Username</label>
-                <input type="text" class="form-input" name="username">
-                <label class="form-label">Password</label>
-                <input type="password" class="form-input" name="password">
+                <!-- <label class="form-label">Username</label> -->
+                <input type="text" class="form-input" name="username" placeholder="Username"><br>
+                <!-- <label class="form-label">Password</label> -->
+                <input type="password" class="form-input" name="password" placeholder="Password"><br>
                 <input type="submit" class="form-submit" name="submit" value="Login">
             </form>
-            <a href="register-admin.php" class="form-submit"><button>Register</button></a>
+            <a href="register-admin.php"><button class="form-submit">Register</button></a>
         </div>
     </div>
 </body>

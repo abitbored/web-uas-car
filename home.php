@@ -10,21 +10,26 @@
 </head>
 
 <body>
-    <header class="logo">
-        <a href="home.php">
-            <h1>Abi's Autoshop</h1>
-        </a>
-    </header>
+    <header>
+        <div class="logo-container">
+            <a href="home.php" class="logo">
+                <span>AbibaCars</span>
+            </a>
+        </div>
 
-    <nav class="navbar">
-        <div class="nav-list">
+        <nav class="navbar">
             <ul>
-                <li><a class="nav-button" href="home.php">Home</a></li>
+                <li><a id="current" class="nav-button" href="home.php">Home</a></li>
                 <li><a class="nav-button" href="catalog.php">Catalog</a></li>
                 <li><a class="nav-button" href="about.php">About</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
+
+    <div class="home">
+        <h2>Buy your dream cars now!</h2>
+        <button onclick="document.location='catalog.php'" class="button-home">Catalog</button>
+    </div>
 </body>
 
 </html>

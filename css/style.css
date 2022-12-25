@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Lobster&family=Source+Sans+Pro&display=swap');
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -40,4 +42,248 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+	background-color: white;
+}
+
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+a:active { text-decoration: none; }
+
+.logo-container {
+	width: 100%;
+	text-align: center;
+	background-color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.logo {
+	font-family: 'audiowide', sans-serif;
+	font-size: 3em;
+	text-decoration: none;
+	color: #FF6E31;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.navbar {
+	width: 100%;
+    height: 50px;
+    background-color: #243763;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+.navbar ul {
+	list-style-type: none;
+}
+
+.navbar ul li {
+	float: left;
+}
+
+.nav-button {
+	text-decoration: none;
+    padding: 15px 20px;
+	padding-bottom: 11px;
+    display: block;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5em;
+	font-weight: bold;
+}
+
+#current {
+	background-color: #FF6E31;
+}
+
+.nav-button:hover {
+	background-color: #ff6f3188;
+}
+
+.nav-button:active {
+	background-color: #a16900;
+}
+
+.home {
+    margin: 250px auto;
+    text-align: center;
+    font-size: 3.5em;
+}
+
+.button-home {
+    margin-top: 15px;
+    text-decoration: none;
+    width: 15%;
+	height: 80px;
+    color: #fff;
+    text-align: center;
+	font-family: 'Source Sans Pro', sans-serif;
+    font-size: 0.8em;
+    background-color: #AD8E70;
+	border-radius: 20px;
+	font-weight: bold;
+	border-style: none;
+}
+
+.button-home:hover {
+	background-color: #ffba3b;
+	cursor: pointer;
+}
+
+.button-home:active {
+	background-color: #a16900;
+}
+
+.product-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+    height: auto;
+	width: 90%;
+    grid-row-gap: 50px;
+	border-style: none;
+	margin: 100px auto;
+}
+
+.product-card {
+	flex: 0 0 auto;
+    width: 500px;
+    height: auto;
+	border: #243763;
+	border-style: none;
+	padding-bottom: 20px;
+	margin: auto;
+	background-color: #FFf;
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.product-card:hover {
+	cursor: pointer;
+}
+
+.product-image{
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.product-brand {
+	font-size: 1.25em;
+	font-weight: bold;
+}
+
+.message-box {
+	margin: 100px auto;
+	border-style: none;
+	width: 600px;
+	padding: 20px;
+	text-align: center;
+	border-radius: 20px;
+	background-color: #fff;
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.message-box span {
+	font-size: 2em;
+}
+
+.content {
+	margin: 100px auto;
+	width: 250px;
+	height: auto;
+	border: #243763;
+	border-style: none;
+	padding: 20px;
+	border-radius: 20px;
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+	display: block;
+	justify-content: center;
+	/* display: inline-table; */
+}
+
+.content h2 {
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.form-input {
+	width: 97%;
+	height: 30px;
+	margin-top: 10px;
+	font-size: 1.25em;
+	text-align: center;
+	border: #243763;
+	border-style: solid;
+	font-family: monospace;
+}
+
+.form-submit {
+	width: 100%;
+	margin-top: 10px;
+	height: 40px;
+	font-size: 1.25em;
+	background-color: white;
+	text-align: center;
+	border: #243763;
+	border-style: solid;
+	font-family: 'source sans pro', sans-serif;
+}
+
+.form-submit:hover {
+	background-color: #4f70c2;
+	cursor: pointer;
+}
+
+.form-submit:active {
+	background-color: #1c2b4d;
+	cursor: pointer;
+}
+
+.register-content {
+	margin: 100px auto;
+	width: 250px;
+	height: auto;
+	border: #243763;
+	border-style: none;
+	padding: 20px;
+	border-radius: 20px;
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+	display: block;
+	justify-content: center;
+}
+
+.register-content h2 {
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	margin-bottom: 10px;
 }
