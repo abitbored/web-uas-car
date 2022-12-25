@@ -18,22 +18,19 @@ $productData = fetch("select * from product where id = '$id'");
 </head>
 
 <body>
-    <header>
+<header>
         <div class="logo-container">
             <a href="home.php" class="logo">
-                <span class="logo-left">Abi's</span>
-                <span class="logo-right">Autoshop</span>
+                <span>AbibaCars</span>
             </a>
         </div>
 
         <nav class="navbar">
-            <div class="nav-list">
-                <ul>
-                    <li><a class="nav-button" href="home.php">Home</a></li>
-                    <li><a class="nav-button" href="catalog.php">Catalog</a></li>
-                    <li><a class="nav-button" href="about.php">About</a></li>
-                </ul>
-            </div>
+            <ul>
+                <li><a class="nav-button" href="home.php">Home</a></li>
+                <li><a class="nav-button" href="catalog.php">Catalog</a></li>
+                <li><a class="nav-button" href="about.php">About</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -41,42 +38,45 @@ $productData = fetch("select * from product where id = '$id'");
         <div class="detail-image">
             <img src="img/<?php echo $productData['imgName']; ?>" alt="<?php echo $productData['brand']; ?>">
         </div>
-        <div class="detail-title">
-            <h2><?php echo $productData['brand']; ?></h2>
-        </div>
-        <div class="detail-info">
-            <span>
-                Uploaded at:
-            </span>
-            <span class="main">
-                <?php echo $productData['dateUploaded']; ?>
-            </span>
-            <br>
-            <span>
-                Year:
-            </span>
-            <span class="main">
-                <?php echo $productData['year']; ?>
-            </span>
-            <br>
-            <span>
-                Kilometer:
-            </span>
-            <span class="main">
-                <?php echo $productData['kilometer']; ?>
-            </span>
-        </div>
-        <div class="detail-description">
-            <pre><?php echo $productData['description']; ?></pre>
+        <div class="details">
+            <div class="detail-title">
+                <h2><?php echo $productData['brand']; ?></h2>
+            </div>
+            <div class="detail-info">
+                <span>
+                    Uploaded at:
+                </span>
+                <span class="main">
+                    <?php echo $productData['dateUploaded']; ?>
+                </span>
+                <br>
+                <span>
+                    Year:
+                </span>
+                <span class="main">
+                    <?php echo $productData['year']; ?>
+                </span>
+                <br>
+                <span>
+                    Kilometer:
+                </span>
+                <span class="main">
+                    <?php echo $productData['kilometer']; ?>
+                </span>
+            </div>
+            <div class="detail-description">
+                <pre><?php echo $productData['description']; ?></pre>
+            </div>
         </div>
     </div>
 
     <div class="contact-container">
-        <h3>Whatsapp below for further information or buying:</h3>
-        <p>+6281276378827</p>
-        <a href="https://wa.me/+6281276378827">
-            <img src="img/wa.png" alt="whatsapp">
-        </a>
+        <h3>Whatsapp below for further information, pricing, or buying:</h3>
+        <div class="contact-image">
+            <a href="https://wa.me/+6281276378827">
+                <img src="img/wa.png" alt="whatsapp">
+            </a>
+        </div>
     </div>
 </body>
 

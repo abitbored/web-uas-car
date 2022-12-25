@@ -63,9 +63,7 @@ $productData = fetchProductData();
                             <td><?php echo $data['brand']; ?></td>
                             <td><?php echo $data['year']; ?></td>
                             <td><?php echo $data['kilometer']; ?></td>
-                            <td>
-                                <pre><?php echo $data['description']; ?></pre>
-                            </td>
+                            <td><pre><?php echo $data['description']; ?></pre></td>
                             <td>
                                 <div class="img-data">
                                     <img src="img/<?php echo $data['imgName']; ?>" alt="<?php echo $data['brand']; ?>" style="width:100px;height:100px;">
@@ -74,11 +72,11 @@ $productData = fetchProductData();
                             </td>
                             <td><?php echo $data['dateUploaded']; ?></td>
                             <td>
-                                <a href="edit-product.php?id=<?php echo $data['id']; ?>" class="edit-btn">Edit</a>
+                                <a href="edit-product.php?id=<?php echo $data['id']; ?>" class="btn">Edit</a>
                                 <form action="" method="POST">
                                     <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
                                     <input type="hidden" name="imgName" value="<?php echo $data['imgName']; ?>">
-                                    <input class="del-btn" type="submit" name="delete" value="Delete">
+                                    <input class="btn" type="submit" name="delete" value="Delete">
                                 </form>
                             </td>
                         </tr>

@@ -48,7 +48,7 @@ $product = fetch("select * from product where id = '$id'");
     </header>
 
     <div class="add-item-content">
-        <h2>Admin Register</h2>
+        <h2>Edit Product</h2>
         <div class="add-item-form-container">
             <form method="POST" action="" enctype="multipart/form-data" autocomplete="off">
                 <label class="form-label">Brand</label>

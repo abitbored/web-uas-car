@@ -287,3 +287,189 @@ a:active { text-decoration: none; }
 	font-weight: bold;
 	margin-bottom: 10px;
 }
+
+.add-item-content {
+	margin: 100px auto;
+	width: 400px;
+	height: auto;
+	border: #243763;
+	border-style: none;
+	padding: 20px;
+	border-radius: 20px;
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+	display: block;
+	justify-content: center;
+}
+
+.add-item-content h2 {
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.form-input-add {
+	width: 97%;
+	height: 30px;
+	margin-top: 10px;
+	font-size: 1.25em;
+	border: #243763;
+	border-style: solid;
+	font-family: monospace;
+}
+
+.form-label {
+	font-size: 1.25em;
+
+}
+
+#pic {
+	width: 80%;
+	border-style: none;
+	margin-left: 10px;
+}
+
+#desc {
+	width: 389px;
+	height: 100px;
+	margin-top: 10px;
+	font-size: 1.25em;
+	border: #243763;
+	border-style: solid;
+	font-family: monospace;
+}
+
+.footer {
+	width: 100%;
+    height: 50px;
+    background-color: #243763;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+	bottom: 0;
+	left: 0;
+}
+
+.footer a {
+	margin-top: 15px;
+	text-decoration: none;
+	color: #fff;
+}
+
+.about-container {
+	margin: 100px auto;
+	width: 750px;
+	height: auto;
+	border-style: none;
+	text-align: center;
+}
+
+.img img {
+	border-radius: 50%;
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+	width: 300px;
+    height: 300px;
+	margin-bottom: 20px;
+}
+
+.about-container h3 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0px;
+	
+}
+
+.about-container p {
+    margin-top: 10px;
+    font-size: 1.7em;
+}
+
+.detail-container {
+	margin: 100px auto;
+	width: 90%;
+	height: auto;
+	padding: 20px;
+	border-radius: 20px;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.detail-image {
+	width: 500px;
+	height: 300px;
+}
+
+.detail-image img {
+	border-radius: 20px;
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+	width: 100%;
+    height: auto;
+}
+
+.details {
+	margin-left: 30px;
+	width: 500px;
+}
+
+.detail-title {
+	margin-bottom: 10px;
+}
+
+.detail-title h2 {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.detail-info span {
+	font-size: 1.25em;
+}
+
+.main {
+	color: #4c74d1;
+}
+
+.detail-description {
+	margin-top: 10px;
+	font-size: 1.25em;
+}
+
+.contact-container {
+	margin-top: -75px;
+	margin-left: 100px;
+	width: 32%;
+	height: auto;
+}
+
+.contact-container h3 {
+	font-size: 1.5em;
+}
+
+.contact-image {
+	width: 100%;
+	text-align: center;
+}
+
+.contact-container img {
+	margin-top: 20px;
+	width: 200px;
+	height: 200px;
+}
+
+.table-container {
+	margin: 100px auto;
+	width: 90%;
+}
+
+.table {
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+th, td{
+	border: 1px solid black;
+}
+
+.table-head th {
+	width: 25%;
+}

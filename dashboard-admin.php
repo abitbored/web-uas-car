@@ -37,7 +37,9 @@ if (isset($_POST['logout'])) {
         </nav>
     </header>
 
-    <p>welcome <?php echo $_SESSION['name']; ?></p>
+    <div class="home">
+        <h2>Welcome admin <?php echo strtok($_SESSION['name'], " "); ?>!</h2>
+    </div>
 </body>
 
 </html>

@@ -7,7 +7,7 @@ function fetch($query)
 
     $result = mysqli_query($connect, $query);
 
-    return $resultRows = mysqli_fetch_assoc($result);
+    return mysqli_fetch_assoc($result);
 }
 
 function fetchMany($tableName, $columnArr, $order, $sort)

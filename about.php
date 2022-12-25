@@ -28,7 +28,7 @@
 
     <div class="about-container">
         <div class="img">
-            <img src="img/geralt.jpg" alt="Geralt of Rivia">
+            <img src="img/abi.png" alt="Abimanyu">
         </div>
 
         <div class="content-about">

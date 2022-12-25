@@ -30,6 +30,12 @@
         <h2>Buy your dream cars now!</h2>
         <button onclick="document.location='catalog.php'" class="button-home">Catalog</button>
     </div>
+
+    <footer>
+        <div class="footer">
+            <a href="login-admin.php">Admin Login</a>
+        </div>
+    </footer>
 </body>
 
 </html>
